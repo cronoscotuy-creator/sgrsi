@@ -31,8 +31,9 @@ Proyecto de fin de año | Equipo Cronos | ITI 2026
 PHP 8+, MySQL 8+, Bootstrap 5, jQuery 3.7, AES-256-GCM
 
 
-<<<<<<< HEAD
+HEAD
 1
+HEAD
 =======
 Diego
 main
@@ -42,6 +43,8 @@ test
 test2Diego
 333
 1111
->>>>>>> e9040ac6d79a1579f19305cce24453bbf63b02ed
+e9040ac6d79a1579f19305cce24453bbf63b02ed
 22222
 33333
+=======
+fd2c76df7da7d040f1790217b65e2b5d889e2445

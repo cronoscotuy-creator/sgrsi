@@ -33,13 +33,3 @@ PHP 8+, MySQL 8+, Bootstrap 5, jQuery 3.7, AES-256-GCM
 
 <<<<<<< HEAD
 1
-=======
-Diego
-main
-main
-andres
-test
-test2Diego
-333
-1111
->>>>>>> e9040ac6d79a1579f19305cce24453bbf63b02ed

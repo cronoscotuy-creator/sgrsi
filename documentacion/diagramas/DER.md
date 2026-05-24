@@ -1,6 +1,6 @@
 Modelo Entidad-Relación con cardinalidades
 
-https://app.diagrams.net/#G1_fHcDi8Hqjc4t9EfF-f8BvpBxwpRLinJ#%7B%22pageId%22%3A%22rM_Aa4G87PMvSTcgMddE%22%7D
+https://app.diagrams.net/#G1POl4bpKAhRQMI6TNAHeKLtuTuoezyRSj#%7B%22pageId%22%3A%22rM_Aa4G87PMvSTcgMddE%22%7D
 
 
 

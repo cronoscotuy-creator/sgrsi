@@ -1,19 +1,19 @@
-# Flujo de Trabajo - Equipo Cronos
+# Guía de Contribución - Equipo Cronos
 
-## Estrategia de Ramas
-- `main` → solo versiones estables listas para entrega
-- `dev` → integración continua del equipo
-- `feature/RFXX-nombre` → desarrollo por requerimiento funcional
-- `hotfix/correccion-xxx` → arreglos urgentes
-- `docs/actualizacion-xxx` → documentación académica
+## 🌿 Estrategia de Ramas
+- `main`: Código estable listo para entrega académica
+- `dev`: Integración continua del equipo
+- `feature/0X-nombre`: Desarrollo por requerimiento funcional
 
-## Convención de Commits
-`<tipo>(alcance): <descripción>`
-Tipos: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
-Ejemplos:
-- `feat(tickets): agregar selector de prioridad y actualización de estado`
-- `fix(login): redirección infinita al expirar sesión`
-- `docs(requisitos): completar IEEE 830 para RF-01 a RF-06`
+## 📝 Convención de Commits
+`<tipo>(modulo): descripcion breve`
+Ejemplos: 
+- `feat(auth): agregar validacion cliente con jquery`
+- `fix(css): corregir breakpoints moviles y tabletas`
+- `docs(requisitos): completar IEEE 830 RF-01 a RF-03`
 
-## Etiquetado
-Versionado semántico para hitos académicos: `v0.1.0-mvp`, `v0.2.0-entrega-parcial`, `v1.0.0-final`
+## ✅ Flujo de Trabajo
+1. Crear rama: `git checkout -b feature/01-login`
+2. Desarrollar, commitear y push
+3. Abrir Pull Request hacia `dev`
+4. Revisión por pares → Merge

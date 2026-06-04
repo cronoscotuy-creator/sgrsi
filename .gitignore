@@ -1,0 +1,14 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+*.log
+
+# Configuración local / sensibles
+.env
+config.local.php
+vendor/
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp

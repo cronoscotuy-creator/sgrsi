@@ -1,53 +1,46 @@
-/**
- * Validación personalizada del lado del cliente.
- * Cumple: manipulación DOM, manejo de eventos, control de errores.
- */
-document.addEventListener('DOMContentLoaded', function() {
-    const formularioInicio = document.getElementById('formulario-login');
-
-    if (formularioInicio) {
-        formularioInicio.addEventListener('submit', function(evento) {
-            if (!validarCamposInicio()) {
-                evento.preventDefault(); // Bloquea envío si hay errores
-            }
-        });
-    }
+// Esperamos a que el DOM esté completamente cargado antes de manipularlo
+$(document).ready(function() {
+    // Interceptamos el evento submit del formulario de login
+    $('#formulario-login').on('submit', function(evento) {
+        if (!validar_campos_login()) {
+            evento.preventDefault(); // Bloqueamos el envío si hay errores
+        }
+    });
 });
 
-function validarCamposInicio() {
-    const campoCorreo = document.getElementById('correo');
-    const campoContrasena = document.getElementById('contrasena');
-    let hayErrores = false;
+/**
+ * Valida campos del formulario de inicio de sesión.
+ * Retorna true si pasan la validación, false en caso contrario.
+ */
+function validar_campos_login() {
+    let todo_correcto = true;
 
-    limpiarMensajes();
+    // Limpiamos errores previos
+    $('.mensaje-error').remove();
+    $('.form-control').removeClass('campo-invalido');
 
-    if (!campoCorreo.value.trim().includes('@') || campoCorreo.value.length < 5) {
-        mostrarError(campoCorreo, 'El formato del correo electrónico es inválido.');
-        hayErrores = true;
+    const correo = $('#correo').val().trim();
+    const contrasena = $('#contrasena').val().trim();
+
+    // Validación básica de formato de email
+    if (correo.length < 5 || !correo.includes('@')) {
+        mostrar_error('#correo', 'Por favor, ingresa un correo electrónico válido.');
+        todo_correcto = false;
     }
 
-    if (campoContrasena.value.length < 6) {
-        mostrarError(campoContrasena, 'La contraseña debe tener al menos 6 caracteres.');
-        hayErrores = true;
+    // Validación de longitud mínima de contraseña
+    if (contrasena.length < 6) {
+        mostrar_error('#contrasena', 'La contraseña debe tener al menos 6 caracteres.');
+        todo_correcto = false;
     }
 
-    return !hayErrores;
+    return todo_correcto;
 }
 
-function mostrarError(campo, mensaje) {
-    const etiquetaError = document.createElement('span');
-    etiquetaError.classList.add('mensaje-error');
-    etiquetaError.textContent = mensaje;
-    etiquetaError.style.color = '#dc3545';
-    etiquetaError.style.fontSize = '0.85rem';
-    etiquetaError.style.marginTop = '0.25rem';
-    etiquetaError.style.display = 'block';
-
-    campo.parentNode.appendChild(etiquetaError);
-    campo.classList.add('borde-invalido');
-}
-
-function limpiarMensajes() {
-    document.querySelectorAll('.mensaje-error').forEach(el => el.remove());
-    document.querySelectorAll('.borde-invalido').forEach(el => el.classList.remove('borde-invalido'));
+/**
+ * Inyecta un mensaje de error visual junto al campo indicado.
+ */
+function mostrar_error(selector, mensaje) {
+    $(selector).addClass('campo-invalido');
+    $(selector).after(`<div class="mensaje-error">${mensaje}</div>`);
 }

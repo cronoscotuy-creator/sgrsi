@@ -1,0 +1,168 @@
+/* ============================================
+   SGRSI - Estilos institucionales Ceibal
+   Equipo Cronos | ITI 2026
+   ============================================ */
+
+:root {
+  /* 🎨 Paleta oficial Ceibal (Manual de Marca) */
+  --color-primario: #00a096;        /* Teal institucional */
+  --color-primario-hover: #008f85;  /* Hover más oscuro */
+  --color-primario-light: #e6f7f5;  /* Fondo suave para acentos */
+  
+  --color-info: #005a9b;            /* Azul secundario */
+  --color-exito: #009641;           /* Verde validación */
+  --color-advertencia: #96be1e;     /* Lima/amarillo Ceibal */
+  --color-error: #e60064;           /* Rosa/Rojo institucional */
+  
+  --color-fondo: #ffffff;           /* Blanco base */
+  --color-superficie: #f8fafc;      /* Gris muy claro para cards */
+  --color-borde: #e2e8f0;           /* Separadores sutiles */
+  
+  --color-texto: #1f2328;           /* Negro suave (mejor legibilidad) */
+  --color-texto-secundario: #64748b; /* Gris para texto secundario */
+  
+  /* 🔤 Tipografía institucional */
+  --fuente-principal: Verdana, Arial, sans-serif;
+  --fuente-tamanio-base: 0.9375rem; /* 15px */
+  
+  /* 🧱 UI */
+  --radio-borde: 8px;
+  --sombra-suave: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+}
+
+/* 🔍 Aplicación global */
+body {
+  font-family: var(--fuente-principal);
+  font-size: var(--fuente-tamanio-base);
+  color: var(--color-texto);
+  background-color: var(--color-superficie);
+  line-height: 1.5;
+}
+
+/* 🎨 Sobreescribe Bootstrap con identidad Ceibal */
+.bg-primary-ceibal {
+  background-color: var(--color-primario) !important;
+}
+.btn-primary-ceibal {
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
+  color: #fff;
+  transition: all 0.2s ease;
+}
+.btn-primary-ceibal:hover,
+.btn-primary-ceibal:focus {
+  background-color: var(--color-primario-hover);
+  border-color: var(--color-primario-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--sombra-suave);
+}
+.btn-primary-ceibal:disabled {
+  background-color: var(--color-primario);
+  opacity: 0.7;
+}
+
+/* Badges de roles */
+.bg-info-ceibal {
+  background-color: var(--color-info) !important;
+  color: #fff;
+}
+.bg-warning-ceibal {
+  background-color: var(--color-advertencia) !important;
+  color: #1f2328;
+}
+.bg-secondary-ceibal {
+  background-color: var(--color-texto-secundario) !important;
+  color: #fff;
+}
+.bg-light-ceibal {
+  background-color: var(--color-superficie) !important;
+  border-color: var(--color-borde) !important;
+}
+
+/* Cards y contenedores */
+.card {
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  background-color: var(--color-fondo);
+}
+.card-header {
+  border-bottom: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde) var(--radio-borde) 0 0 !important;
+}
+.card-footer {
+  border-top: 1px solid var(--color-borde);
+  border-radius: 0 0 var(--radio-borde) var(--radio-borde) !important;
+}
+
+/* Formularios */
+.form-control,
+.form-select {
+  border-radius: calc(var(--radio-borde) - 2px);
+  border-color: var(--color-borde);
+  font-family: var(--fuente-principal);
+  padding: 0.625rem 0.875rem;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 0.2rem rgba(0, 160, 150, 0.25);
+}
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: var(--color-error);
+  padding-right: calc(1.5em + 1.25rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23e60064'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23e60064' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.3125rem) center;
+  background-size: calc(0.75em + 0.625rem) calc(0.75em + 0.625rem);
+}
+
+/* Responsive: Móviles (≤576px) */
+@media (max-width: 576px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .card {
+    margin: 0.5rem;
+  }
+  .btn-lg {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Responsive: Tabletas (≤768px) */
+@media (max-width: 768px) {
+  .row > [class*="col-"] {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Utilidades de texto */
+.text-primary-ceibal { color: var(--color-primario) !important; }
+.text-exito { color: var(--color-exito) !important; }
+.text-error { color: var(--color-error) !important; }
+.text-advertencia { color: var(--color-advertencia) !important; }
+/* Bordes institucionales para métricas */
+.border-primary-ceibal { border-color: var(--color-primario) !important; }
+.border-success-ceibal { border-color: var(--color-exito) !important; }
+.border-warning-ceibal { border-color: var(--color-advertencia) !important; }
+.border-info-ceibal    { border-color: var(--color-info) !important; }
+.border-secondary-ceibal { border-color: var(--color-texto-secundario) !important; }
+
+/* Bordes punteados para configuración */
+.border-dashed { border-style: dashed !important; }
+
+/* Efecto hover suave en cards de acceso */
+.hover-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+.hover-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Fondo semitransparente para iconos */
+.bg-opacity-10 { background-color: rgba(0,0,0,0.05); }

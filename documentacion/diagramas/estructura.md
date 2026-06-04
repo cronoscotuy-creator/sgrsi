@@ -15,6 +15,7 @@ sgrsi/
 │   └── pie_pagina.php            # Footer, scripts globales
 ├── modulos/
 │   ├── auth/                     # login.php, cerrar_sesion.php
+│   │    └── login.php            # login pedido para entrega 3/6
 │   ├── laboratorios/             # RF-01
 │   ├── equipos/                  # RF-02, RF-04
 │   ├── tickets/                  # RF-03, RF-05

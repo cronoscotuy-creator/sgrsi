@@ -1,0 +1,46 @@
+services:
+  web:
+    build: ./docker/php
+    container_name: sgrsi_web
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=sgrsi_user
+      - DB_PASSWORD=sgrsi2026
+      - DB_NAME=sgrsi_db
+
+  db:
+    image: mariadb:10.11
+    container_name: sgrsi_db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root2026
+      MYSQL_DATABASE: sgrsi_db
+      MYSQL_USER: sgrsi_user
+      MYSQL_PASSWORD: sgrsi2026
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database/esquema.sql:/docker-entrypoint-initdb.d/01_esquema.sql
+      - ./database/seed_data.sql:/docker-entrypoint-initdb.d/02_seed_data.sql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: sgrsi_pma
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: sgrsi_user
+      PMA_PASSWORD: sgrsi2026
+    depends_on:
+      - db
+
+volumes:
+  db_data:

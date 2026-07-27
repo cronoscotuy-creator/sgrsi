@@ -14,11 +14,17 @@
         <h1><i class="bi bi-hourglass-split"></i> CRONOS</h1>
         <div class="slogan">Change On Time</div>
 
+        <?php if (isset($_GET['expirado'])): ?>
+        <div class="alert alert-warning">
+            <i class="bi bi-clock"></i> Tu sesión expiró. Ingresá nuevamente.
+        </div>
+        <?php endif; ?>
+
         <?php
         $flash = flash_get();
         if ($flash):
         ?>
-        <div class="alert alert-<?= $flash['tipo'] ?> alert-dismissible fade show" role="alert">
+        <div class="alert alert-<?= $flash['tipo'] ?> alert-dismissible fade show">
             <?= htmlspecialchars($flash['mensaje']) ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>

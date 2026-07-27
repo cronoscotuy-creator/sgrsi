@@ -61,6 +61,14 @@
                         <i class="bi bi-graph-up"></i> Métricas
                     </a>
                 </li>
+                <?php if ($_SESSION['rol'] === 'administrador'): ?>
+<li class="nav-item">
+    <a class="nav-link <?= ($pagina_actual ?? '') === 'usuarios' ? 'active' : '' ?>"
+       href="/index.php?pagina=usuarios">
+        <i class="bi bi-people"></i> Usuarios
+    </a>
+</li>
+<?php endif; ?>
                 <?php endif; ?>
             </ul>
             <ul class="navbar-nav">

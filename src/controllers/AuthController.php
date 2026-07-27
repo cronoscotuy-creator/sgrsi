@@ -4,12 +4,13 @@ require_once __DIR__ . '/../helpers/flash.php';
 
 // Logout
 if ($pagina === 'logout') {
+    session_unset();
     session_destroy();
     header('Location: /index.php?pagina=login');
     exit;
 }
 
-// Procesar POST (formulario enviado)
+// POST — procesar login
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email     = trim($_POST['email'] ?? '');
     $contrasena = $_POST['contrasena'] ?? '';
